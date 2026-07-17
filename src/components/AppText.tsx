@@ -1,10 +1,9 @@
 // --- IMPORTS ---
 import { Text } from 'react-native';
-import { processFontWeight } from 'react-native-reanimated/lib/typescript/common';
 
 // --- TYPES ---
 type AppTextProps = {
-    variant?: 'title' | 'h1' | 'subtitle' | 'body';
+    variant?: 'title' | 'h1' | "h2" | 'subtitle' | 'body';
     children: string; // Whatever is placed inside the tags
 };
 
@@ -18,11 +17,14 @@ export default function AppText({ variant = 'body', children }: AppTextProps) {
         case 'title':
             textStyle = { fontSize: 32, fontWeight: 'bold', color: '#5C4033', marginBottom: 15 };
             break;
+        case 'subtitle':
+            textStyle = { fontSize: 18, fontWeight: '600', color: '#D4A373', marginBottom: 5 };
+            break;
         case 'h1':
             textStyle = { fontSize: 24, fontWeight: 'bold', color: '#A06B42', marginBottom: 10 };
             break;
-        case 'subtitle':
-            textStyle = { fontSize: 18, fontWeight: '600', color: '#D4A373', marginBottom: 5 };
+        case 'h2':
+            textStyle = { fontSize: 20, fontWeight: 'bold', color: '#5E30238C', marginBottom: 10 };
             break;
         case 'body':
         default:

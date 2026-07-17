@@ -7,6 +7,8 @@ import FormRadioButton from '@/components/FormRadioButton';
 import PrimaryButton from '@/components/PrimaryButton';
 import MenuRow from '@/components/MenuRow';
 import TextLink from '@/components/TextLink';
+import Divider from '@/components/Divider';
+import AppText from '@/components/AppText';
 
 export default function HomeScreen() {
   // Create a variable to hold the user's dropdown choice
@@ -33,24 +35,23 @@ export default function HomeScreen() {
           paddingVertical: 50
         }}
       >
-      
-      {/* --- INSTANTIATE COMPONENTS --- */}
+
+      {/* --- PAGE TITLE --- */}
+      <AppText variant="title">Component Library</AppText>
+      <Divider variant="title"/>
+
       {/* TEXT LINK */}
+      <AppText variant="h1">Navigation Links</AppText>
       <TextLink
       questionText="Link Text Example"
       actionText="Press Link Here"
       onPress={() => console.log("Link pressed!")}
       />
-
-      {/* DROPDOWN */}
-      <FormDropdown
-      label="Dropdown Example"
-      options={["Option #1", "Option #2", "Option #3"]}
-      selectedValue={dropdownChoice}
-      onSelect={(dropdownValue) => setDropdownChoice(dropdownValue)}
-      />
+      <Divider/>
 
       {/* Text Inputs */}
+      <AppText variant="h1">Text Inputs</AppText>
+      <AppText variant="h2">Single Line Examples</AppText>
       <FormInput 
       label="Text Input Example" 
       placeholder="Exmaple" 
@@ -61,7 +62,9 @@ export default function HomeScreen() {
       placeholder="Example"
       maxLength={20}
       />
+      <Divider variant='faded'/>
 
+      <AppText variant="h2">Multiline Examples</AppText>
       <FormInput
         label="Multiline Example"
         placeholder="Multiline Example..."
@@ -74,8 +77,12 @@ export default function HomeScreen() {
       isMultiline={true}
       maxLength={150}
       />
+
+      <Divider/>
       
       {/* BUTTONS */}
+      <AppText variant="h1">Button Components</AppText>
+      <AppText variant="h2">Action Buttons</AppText>
       <PrimaryButton
       title="Primary Buton Example"
       onPress={() => console.log("Primary Button Pressed!")}
@@ -87,7 +94,21 @@ export default function HomeScreen() {
       isSmall={true}
       />
 
+      <Divider variant='faded'/>
+
+      {/* DROPDOWN */}
+      <AppText variant="h2">Dropdown</AppText>
+      <FormDropdown
+      label="Dropdown Example"
+      options={["Option #1", "Option #2", "Option #3"]}
+      selectedValue={dropdownChoice}
+      onSelect={(dropdownValue) => setDropdownChoice(dropdownValue)}
+      />
+
+      <Divider variant='faded'/>
+
       {/* TOGGLES */}
+      <AppText variant="h2">Toggle Buttons</AppText>
       <FormToggle
       label="Toggle Example"
       isOn={isToggleOnOne}
@@ -100,7 +121,10 @@ export default function HomeScreen() {
       onToggle={(toggleValue) => setIsToggleOnTwo(toggleValue)}
       />
 
+      <Divider variant='faded'/>
+
       {/* RADIO TOGGLE */}
+      <AppText variant="h2">Radio Buttons</AppText>
       <FormRadioButton
       label="Radio Example #1"
       selectedOption={selectedRadioChoice}
@@ -117,6 +141,9 @@ export default function HomeScreen() {
       onSelect={setSelectedRadioChoice}
       />
 
+      <Divider variant='faded'/>
+
+      <AppText variant="h2">Menu Row Buttons</AppText>
       <MenuRow
       label="Option #1"
       onPress={() => console.log("Option #1 Selected")}
@@ -129,6 +156,8 @@ export default function HomeScreen() {
       label="Option #3"
       onPress={() => console.log("Option #3 Selected")}
       />
+
+      <Divider/>
 
     </ScrollView>
   );
