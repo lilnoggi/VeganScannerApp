@@ -41,9 +41,22 @@ export default function HomeScreen() {
       />
 
       <FormInput
+      label="Counter Example"
+      placeholder="Example"
+      maxLength={20}
+      />
+
+      <FormInput
         label="Multiline Example"
         placeholder="Multiline Example..."
         isMultiline={true}
+      />
+
+      <FormInput
+      label="Multiline Counter Example"
+      placeholder="Multiline Example"
+      isMultiline={true}
+      maxLength={150}
       />
       
       {/* BUTTONS */}
