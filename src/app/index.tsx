@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { Text, View } from 'react-native';
-import FormInput from '../components/FormInput'
-import PrimaryButton from '../components/PrimaryButton';
+import FormInput from '@/components/FormInput'
+import FormDropdown from '@/components/FormDropdown';
+import PrimaryButton from '@/components/PrimaryButton';
 import TextLink from '@/components/TextLink';
 
 export default function HomeScreen() {
+  // Create a variable to hold the user's dropdown choice
+  const [pronounChoice, setPronounChoice] = useState("");
   return (
 
     // --- MAIN CANVAS ---
@@ -20,6 +24,14 @@ export default function HomeScreen() {
       questionText="Haven't Registered?"
       actionText="Sign up here."
       onPress={() => console.log("Link pressed! Going to Signup...")}
+      />
+
+      {/* DROPDOWN */}
+      <FormDropdown
+      label="Pronouns"
+      options={["He/Him", "She/Her", "They/Them", "Prefer not to say"]}
+      selectedValue={pronounChoice}
+      onSelect={(value) => setPronounChoice(value)}
       />
 
       {/* Text Inputs */}
