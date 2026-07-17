@@ -22,14 +22,15 @@ export default function HomeScreen() {
 
     // --- MAIN CANVAS ---
     <ScrollView 
-    style={{ 
-      flex: 1, 
-      backgroundColor: '#FFF', 
-      }}
-      contentContainerStyle={{
-        alignItems: 'center',
-        paddingVertical: 50
-      }}
+      showsVerticalScrollIndicator={false}
+        style={{ 
+          flex: 1, 
+          backgroundColor: '#FFF', 
+        }}
+        contentContainerStyle={{
+          alignItems: 'center',
+          paddingVertical: 50
+        }}
       >
       
       {/* --- INSTANTIATE COMPONENTS --- */}
