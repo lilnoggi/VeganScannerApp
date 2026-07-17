@@ -1,13 +1,19 @@
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import FormInput from '@/components/FormInput'
 import FormDropdown from '@/components/FormDropdown';
+import FormToggle from '@/components/FormToggle';
 import PrimaryButton from '@/components/PrimaryButton';
 import TextLink from '@/components/TextLink';
 
 export default function HomeScreen() {
   // Create a variable to hold the user's dropdown choice
   const [dropdownChoice, setDropdownChoice] = useState("");
+
+  // Variable to track if toggle is on or off
+  const [isToggleOnOne, setIsToggleOnOne] = useState(false);
+  const [isToggleOnTwo, setIsToggleOnTwo] = useState(false);
+
   return (
 
     // --- MAIN CANVAS ---
@@ -18,7 +24,7 @@ export default function HomeScreen() {
       alignItems: 'center'
       }}>
       
-      {/* INSTANTIATE COMPONENTS */}
+      {/* --- INSTANTIATE COMPONENTS --- */}
       {/* TEXT LINK */}
       <TextLink
       questionText="Link Text Example"
@@ -31,7 +37,7 @@ export default function HomeScreen() {
       label="Dropdown Example"
       options={["Option #1", "Option #2", "Option #3"]}
       selectedValue={dropdownChoice}
-      onSelect={(value) => setDropdownChoice(value)}
+      onSelect={(dropdownValue) => setDropdownChoice(dropdownValue)}
       />
 
       {/* Text Inputs */}
@@ -69,6 +75,19 @@ export default function HomeScreen() {
       title="Small Example"
       onPress={() => console.log("Small Button Pressed!")}
       isSmall={true}
+      />
+
+      {/* TOGGLES */}
+      <FormToggle
+      label="Toggle Example"
+      isOn={isToggleOnOne}
+      onToggle={(toggleValue) => setIsToggleOnOne(toggleValue)}
+      />
+
+      <FormToggle
+      label="Toggle Example #2"
+      isOn={isToggleOnTwo}
+      onToggle={(toggleValue) => setIsToggleOnTwo(toggleValue)}
       />
 
     </View>
