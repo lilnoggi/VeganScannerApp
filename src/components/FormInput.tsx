@@ -7,12 +7,13 @@ import { Text, TextInput, View } from 'react-native';
 type FormInputProps = {
     label: string;
     placeholder: string;
+    isMultiline? : boolean;
 };
 
 // --- THE COMPONENT ---
 // Pass the { label, placeholder } variables into the component
 // so the UI knows what text to display when it renders.
-export default function FormInput({ label, placeholder }: FormInputProps) {
+export default function FormInput({ label, placeholder, isMultiline }: FormInputProps) {
     return (
 
         // --- VIEW ---
@@ -31,6 +32,7 @@ export default function FormInput({ label, placeholder }: FormInputProps) {
             <TextInput
             placeholder={placeholder}
             placeholderTextColor="#C4A48A"
+            multiline={isMultiline}
             style={{
                 backgroundColor: '#F8F4E6', // Cream fill
                 borderColor: '#D4A373',     // Caramel border
@@ -39,7 +41,10 @@ export default function FormInput({ label, placeholder }: FormInputProps) {
                 paddingHorizontal: 15,        // Padding-left & padding-right
                 paddingVertical: 12,          // padding-top & padding-bottom
                 fontSize: 16,
-                color: '#5C5033'            // Dark Coffee text colour for typing
+                color: '#5C5033',           // Dark Coffee text colour for typing
+                // If multiline is true, make it 100px tall and start typing at the top. Otherwise, keep it normal
+                height: isMultiline ? 100: 'auto',
+                textAlignVertical: isMultiline ? 'top' : 'center'
             }}
             />
         </View>

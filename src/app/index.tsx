@@ -11,7 +11,12 @@ export default function HomeScreen() {
   return (
 
     // --- MAIN CANVAS ---
-    <View style={{ flex: 1, backgroundColor: '#FFF', justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{ 
+      flex: 1, 
+      backgroundColor: '#FFF', 
+      justifyContent: 'center', 
+      alignItems: 'center'
+      }}>
       
       {/* INSTANTIATE COMPONENTS */}
       {/* TEXT LINK */}
@@ -30,7 +35,16 @@ export default function HomeScreen() {
       />
 
       {/* Text Inputs */}
-      <FormInput label="Text Input Example" placeholder="Exmaple" />
+      <FormInput 
+      label="Text Input Example" 
+      placeholder="Exmaple" 
+      />
+
+      <FormInput
+        label="Multiline Example"
+        placeholder="Multiline Example..."
+        isMultiline={true}
+      />
       
       {/* BUTTONS */}
       <PrimaryButton
