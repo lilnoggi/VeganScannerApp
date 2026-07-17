@@ -5,6 +5,7 @@ import FormDropdown from '@/components/FormDropdown';
 import FormToggle from '@/components/FormToggle';
 import FormRadioButton from '@/components/FormRadioButton';
 import PrimaryButton from '@/components/PrimaryButton';
+import MenuRow from '@/components/MenuRow';
 import TextLink from '@/components/TextLink';
 
 export default function HomeScreen() {
@@ -114,6 +115,19 @@ export default function HomeScreen() {
       label="Radio Example #3"
       selectedOption={selectedRadioChoice}
       onSelect={setSelectedRadioChoice}
+      />
+
+      <MenuRow
+      label="Option #1"
+      onPress={() => console.log("Option #1 Selected")}
+      />
+      <MenuRow
+      label="Option #2"
+      onPress={() => console.log("Option #2 Selected")}
+      />
+      <MenuRow
+      label="Option #3"
+      onPress={() => console.log("Option #3 Selected")}
       />
 
     </ScrollView>
