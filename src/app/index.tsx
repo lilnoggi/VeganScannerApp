@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import FormInput from '@/components/FormInput'
 import FormDropdown from '@/components/FormDropdown';
 import FormToggle from '@/components/FormToggle';
@@ -21,12 +21,16 @@ export default function HomeScreen() {
   return (
 
     // --- MAIN CANVAS ---
-    <View style={{ 
+    <ScrollView 
+    style={{ 
       flex: 1, 
       backgroundColor: '#FFF', 
-      justifyContent: 'center', 
-      alignItems: 'center'
-      }}>
+      }}
+      contentContainerStyle={{
+        alignItems: 'center',
+        paddingVertical: 50
+      }}
+      >
       
       {/* --- INSTANTIATE COMPONENTS --- */}
       {/* TEXT LINK */}
@@ -111,6 +115,6 @@ export default function HomeScreen() {
       onSelect={setSelectedRadioChoice}
       />
 
-    </View>
+    </ScrollView>
   );
 }
