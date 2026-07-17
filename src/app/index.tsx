@@ -38,6 +38,12 @@ export default function HomeScreen() {
       onPress={() => console.log("Primary Button Pressed!")}
       />
 
+      <PrimaryButton
+      title="Small Example"
+      onPress={() => console.log("Small Button Pressed!")}
+      isSmall={true}
+      />
+
     </View>
   );
 }
