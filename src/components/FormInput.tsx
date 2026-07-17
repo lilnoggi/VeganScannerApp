@@ -4,7 +4,7 @@ import { Text, TextInput, View } from 'react-native';
 
 // --- VARIABLE TYPES ---
 // Define what type of data this prefab expects/requires
-type ProfileInputProps = {
+type FormInputProps = {
     label: string;
     placeholder: string;
 };
@@ -12,7 +12,7 @@ type ProfileInputProps = {
 // --- THE COMPONENT ---
 // Pass the { label, placeholder } variables into the component
 // so the UI knows what text to display when it renders.
-export default function ProfileInput({ label, placeholder }: ProfileInputProps) {
+export default function FormInput({ label, placeholder }: FormInputProps) {
     return (
 
         // --- VIEW ---

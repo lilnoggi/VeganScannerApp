@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import ProfileInput from '../components/ProfileInput'
+import FormInput from '../components/FormInput'
 import PrimaryButton from '../components/PrimaryButton';
 
 export default function HomeScreen() {
@@ -10,9 +10,9 @@ export default function HomeScreen() {
       
       {/* INSTANTIATE COMPONENTS */}
       {/* Text Inputs */}
-      <ProfileInput label="Username" placeholder="@Username" />
-      <ProfileInput label="Name" placeholder="Nickname" />
-      <ProfileInput label="Bio" placeholder="Tell us about yourself..." />
+      <FormInput label="Username" placeholder="@Username" />
+      <FormInput label="Name" placeholder="Nickname" />
+      <FormInput label="Bio" placeholder="Tell us about yourself..." />
       
       {/* BUTTONS */}
       <PrimaryButton
