@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import FormInput from '@/components/FormInput'
 import FormDropdown from '@/components/FormDropdown';
 import FormToggle from '@/components/FormToggle';
+import FormRadioButton from '@/components/FormRadioButton';
 import PrimaryButton from '@/components/PrimaryButton';
 import TextLink from '@/components/TextLink';
 
@@ -13,6 +14,9 @@ export default function HomeScreen() {
   // Variable to track if toggle is on or off
   const [isToggleOnOne, setIsToggleOnOne] = useState(false);
   const [isToggleOnTwo, setIsToggleOnTwo] = useState(false);
+
+  // Variable to track the selected radio button
+  const [selectedRadioChoice, setSelectedRadioChoice] = useState("Default");
 
   return (
 
@@ -88,6 +92,23 @@ export default function HomeScreen() {
       label="Toggle Example #2"
       isOn={isToggleOnTwo}
       onToggle={(toggleValue) => setIsToggleOnTwo(toggleValue)}
+      />
+
+      {/* RADIO TOGGLE */}
+      <FormRadioButton
+      label="Radio Example #1"
+      selectedOption={selectedRadioChoice}
+      onSelect={setSelectedRadioChoice}
+      />
+      <FormRadioButton
+      label="Radio Example #2"
+      selectedOption={selectedRadioChoice}
+      onSelect={setSelectedRadioChoice}
+      />
+      <FormRadioButton
+      label="Radio Example #3"
+      selectedOption={selectedRadioChoice}
+      onSelect={setSelectedRadioChoice}
       />
 
     </View>
