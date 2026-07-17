@@ -7,7 +7,7 @@ import TextLink from '@/components/TextLink';
 
 export default function HomeScreen() {
   // Create a variable to hold the user's dropdown choice
-  const [pronounChoice, setPronounChoice] = useState("");
+  const [dropdownChoice, setDropdownChoice] = useState("");
   return (
 
     // --- MAIN CANVAS ---
@@ -16,37 +16,26 @@ export default function HomeScreen() {
       {/* INSTANTIATE COMPONENTS */}
       {/* TEXT LINK */}
       <TextLink
-      questionText="Already Registered?"
-      actionText="Log in here."
-      onPress={() => console.log("Link pressed! Going to Login...")}
-      />
-      <TextLink
-      questionText="Haven't Registered?"
-      actionText="Sign up here."
-      onPress={() => console.log("Link pressed! Going to Signup...")}
+      questionText="Link Text Example"
+      actionText="Press Link Here"
+      onPress={() => console.log("Link pressed!")}
       />
 
       {/* DROPDOWN */}
       <FormDropdown
-      label="Pronouns"
-      options={["He/Him", "She/Her", "They/Them", "Prefer not to say"]}
-      selectedValue={pronounChoice}
-      onSelect={(value) => setPronounChoice(value)}
+      label="Dropdown Example"
+      options={["Option #1", "Option #2", "Option #3"]}
+      selectedValue={dropdownChoice}
+      onSelect={(value) => setDropdownChoice(value)}
       />
 
       {/* Text Inputs */}
-      <FormInput label="Username" placeholder="@Username" />
-      <FormInput label="Name" placeholder="Nickname" />
-      <FormInput label="Bio" placeholder="Tell us about yourself..." />
+      <FormInput label="Text Input Example" placeholder="Exmaple" />
       
       {/* BUTTONS */}
       <PrimaryButton
-      title="Sign up"
-      onPress={() => console.log("Sign up Button Pressed!")}
-      />
-      <PrimaryButton
-      title="Login"
-      onPress={() => console.log("Login Button Pressed!")}
+      title="Primary Buton Example"
+      onPress={() => console.log("Primary Button Pressed!")}
       />
 
     </View>
