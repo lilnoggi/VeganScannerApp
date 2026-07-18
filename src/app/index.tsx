@@ -10,6 +10,7 @@ import IconButton from '@/components/IconButton';
 import TextLink from '@/components/TextLink';
 import Divider from '@/components/Divider';
 import AppText from '@/components/AppText';
+import NavBar, { TabName } from '@/components/NavBar';
 
 export default function HomeScreen() {
   // Create a variable to hold the user's dropdown choice
@@ -21,6 +22,9 @@ export default function HomeScreen() {
 
   // Variable to track the selected radio button
   const [selectedRadioChoice, setSelectedRadioChoice] = useState("Default");
+
+  // Track NavBar state
+  const [activeNavTab, setActiveNavTab] = useState<TabName>("Home");
 
   return (
 
@@ -187,6 +191,16 @@ export default function HomeScreen() {
       </View>
 
       <Divider/>
+
+      {/* NAVIGATION BAR */}
+      <AppText variant="h2">Navigation Bar</AppText>
+
+      <View style={{ width: '100%', paddingBottom: 40, paddingTop: 10 }}>
+        <NavBar
+          activeTab={activeNavTab}
+          onTabPress={(tab) => setActiveNavTab}
+        />
+      </View>
 
     </ScrollView>
   );
