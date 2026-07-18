@@ -6,6 +6,7 @@ import FormToggle from '@/components/FormToggle';
 import FormRadioButton from '@/components/FormRadioButton';
 import PrimaryButton from '@/components/PrimaryButton';
 import MenuRow from '@/components/MenuRow';
+import IconButton from '@/components/IconButton';
 import TextLink from '@/components/TextLink';
 import Divider from '@/components/Divider';
 import AppText from '@/components/AppText';
@@ -156,6 +157,34 @@ export default function HomeScreen() {
       label="Option #3"
       onPress={() => console.log("Option #3 Selected")}
       />
+
+      <Divider variant='faded'/>
+
+        {/* ICON BUTTONS */}
+      <AppText variant="h2">Icon Buttons</AppText>
+      <View style={{
+        flexDirection: 'row', gap: 20, marginBottom: 30, justifyContent: 'center'
+      }}>
+
+        {/* SETTINGS ICON */}
+        <IconButton
+          iconSource={require('../../assets/icons/SettingsIcon_Placeholder.png')}
+          onPress={() => console.log("Settings Pressed!")}
+        />
+
+        {/* BACK ICON */}
+        <IconButton
+          iconSource={require('../../assets/icons/BackIcon_Placeholder.png')}
+          onPress={() => console.log("Back Pressed!")}
+        />
+
+        {/* REPORT ICON */}
+        <IconButton
+          iconSource={require('../../assets/icons/ReportIcon_Placeholder.png')}
+          onPress={() => console.log("Report Pressed!")}
+        />
+
+      </View>
 
       <Divider/>
 
