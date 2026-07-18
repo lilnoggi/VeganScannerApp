@@ -1,5 +1,6 @@
 // --- IMPORTS ---
 import { Switch, Text, View } from 'react-native';
+import AppText from './AppText';
 
 // --- TYPES ---
 type FormToggleProps = {
@@ -23,13 +24,9 @@ export default function FormToggle({ label, isOn, onToggle }: FormToggleProps) {
         }}>
 
             {/* --- THE LABEL --- */}
-            <Text style={{
-                color: '#5C4033',
-                fontSize: 16,
-                fontWeight: 'bold'
-            }}>
+            <AppText variant='h3'>
                 {label}
-            </Text>
+            </AppText>
 
             {/* ANIMATED SWITCH */}
             <Switch
@@ -45,5 +42,5 @@ export default function FormToggle({ label, isOn, onToggle }: FormToggleProps) {
             />
 
         </View>
-    );
+    )
 }

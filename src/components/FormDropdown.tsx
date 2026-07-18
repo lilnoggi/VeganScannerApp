@@ -2,6 +2,7 @@
 // Import 'useState' so the component can remember if it is open or closed
 import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import AppText from './AppText';
 
 // --- TYPES ---
 type FormDropdownProps = {
@@ -22,9 +23,9 @@ export default function FormDropdown({ label, options, selectedValue, onSelect}:
         <View style={{ width: '85%', marginBottom: 20 }}>
 
         {/* --- THE LABEL --- */}
-        <Text style={{ color: '#5C4033', fontWeight: 'bold', marginBottom: 6, fontSize: 14 }}>
+        <AppText variant='h3'>
             {label}
-        </Text>
+        </AppText>
 
         {/* --- THE MAIN BUTTON --- */}
         <TouchableOpacity
@@ -80,7 +81,9 @@ export default function FormDropdown({ label, options, selectedValue, onSelect}:
                     borderBottomColor: '#E8D4C4'
                   }}
                 >
-                  <Text style={{ color: '#5C5033', fontSize: 16 }}>{option}</Text>
+                  <AppText variant='h3'>
+                    {option}
+                    </AppText>
                 </TouchableOpacity>
               ))}
             </View>

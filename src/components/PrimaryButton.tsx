@@ -1,6 +1,7 @@
 // --- IMPORTS ---
 // TouchableOpacity for clickable buttons
 import { Text, TouchableOpacity } from 'react-native';
+import AppText from './AppText';
 
 // --- TYPES ---
 // Component needs to display text (title) & an action to perform when pressed (onPress)
@@ -26,13 +27,9 @@ export default function PrimaryButton({ title, onPress, isSmall }: PrimaryButton
             marginTop: 10,
         }}
         >
-            <Text style={{ 
-                color: '#FFFFFF', 
-                fontSize: isSmall ? 14 : 18,     // Smaller text for the small button
-                fontWeight: 'bold' 
-                }}>
+            <AppText variant="button">
                 {title}
-            </Text>
+            </AppText>
         </TouchableOpacity>
     );
 }

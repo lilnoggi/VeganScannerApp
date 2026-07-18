@@ -28,7 +28,7 @@ export default function HomeScreen() {
       showsVerticalScrollIndicator={false}
         style={{ 
           flex: 1, 
-          backgroundColor: '#FFF', 
+          backgroundColor: '#FCFBF9', 
         }}
         contentContainerStyle={{
           alignItems: 'center',

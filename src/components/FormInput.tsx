@@ -2,6 +2,7 @@
 import { useState } from 'react'; // Use to track character count
 // Get the specific UI tools needed from React Native engine
 import { Text, TextInput, View } from 'react-native';
+import AppText from './AppText';
 
 // --- VARIABLE TYPES ---
 // Define what type of data this prefab expects/requires
@@ -30,9 +31,9 @@ export default function FormInput({ label, placeholder, isMultiline, maxLength }
             
             {/* --- TEXT --- */}
             {/* left-aligned label */}
-            <Text style={{ color: '#5C4033', fontWeight: 'bold', marginBottom: 6, fontSize: 14 }}>
+            <AppText variant="inputLabel">
                 {label}
-            </Text>
+            </AppText>
 
             {/* --- WRAPPER VIEW --- */}
             {/* This container will pin the counter to the bottom right of the input box */}
@@ -67,16 +68,15 @@ export default function FormInput({ label, placeholder, isMultiline, maxLength }
             {/* --- CHARACTER COUNTER --- */}
             {/* Only render this text if a maxLength was provided to the component */}
             {maxLength && (
-                <Text style={{
+                <View style={{
                     position: 'absolute',
                     bottom: 8,
                     right: 12,
-                    fontSize: 12,
-                    color: '#C4A48A',
-                    fontWeight: 'bold'
                 }}>
-                    {textLength}/{maxLength}
-                </Text>
+                    <AppText variant='caption'>
+                        {`${textLength}/${maxLength}`}
+                    </AppText>
+                </View>
               )}
             </View>
             

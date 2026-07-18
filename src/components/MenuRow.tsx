@@ -1,5 +1,6 @@
 // --- IMPORTS---
 import { Text, TouchableOpacity, View } from 'react-native';
+import AppText from './AppText';
 
 type MenuRowProps = {
     label:string;
@@ -18,13 +19,9 @@ export default function MenuRow({ label, onPress }: MenuRowProps) {
             justifyContent: 'center',
         }}
         >
-            <Text style={{
-                color: '#5C4033',
-                fontSize: 16,
-                fontWeight: 'bold'
-            }}>
+            <AppText variant='h3'>
                 {label}
-            </Text>
+            </AppText>
         </TouchableOpacity>
     );
 }

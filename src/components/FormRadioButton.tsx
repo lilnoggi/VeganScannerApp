@@ -1,5 +1,6 @@
 // --- IMPORTS ---
 import { Text, TouchableOpacity, View } from 'react-native';
+import AppText from './AppText';
 
 // --- TYPES ---
 type FormRadioButtonProps = {
@@ -28,13 +29,9 @@ export default function FormRadioButton({ label, selectedOption, onSelect }: For
         }}
         >
             {/* --- THE LABEL --- */}
-            <Text style={{
-                color: '#5C4033',
-                fontSize: 16,
-                fontWeight: 'bold'
-            }}>
+            <AppText variant='h3'> 
                 {label}
-            </Text>
+            </AppText>
 
             {/* --- OUTER CIRCLE */}
             <View style={{

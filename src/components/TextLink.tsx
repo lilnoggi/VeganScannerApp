@@ -1,5 +1,6 @@
 // --- IMPORTS ---
 import { Text, TouchableOpacity, View } from 'react-native';
+import AppText from './AppText';
 
 // --- TYPES ---
 // Two string for normal text and clickable text
@@ -16,20 +17,15 @@ export default function TextLink({ questionText, actionText, onPress }: TextLink
         <View style={{ flexDirection: 'row', marginBottom: 30 }}>
 
         {/* --- STANDARD TEXT --- */}
-        <Text style={{ color: '#5C4033', fontSize: 14}}>
-            {questionText}{' '}
-        </Text>
+        <AppText variant='body'>
+            {`${questionText}${' '}`}
+        </AppText>
 
         {/* --- LINK TEXT --- */}
         <TouchableOpacity onPress={onPress}>
-            <Text style={{
-                color: '#D4A373',   // Caramel colour
-                fontSize: 14,
-                fontWeight: 'bold',
-                textDecorationLine: 'underline'
-            }}>
+            <AppText variant='link'>
                 {actionText}
-            </Text>
+            </AppText>
         </TouchableOpacity>
 
         </View>
