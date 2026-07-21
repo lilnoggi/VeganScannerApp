@@ -2,13 +2,17 @@
 import { router } from 'expo-router'; 
 import { useState } from 'react';
 import { ScrollView, View, TouchableOpacity } from 'react-native'; 
+
+// --- CUSTOM COMPONENTS ---
 import AppText from '@/components/AppText';
 import NavBar, { TabName } from '@/components/NavBar';
 import Divider from '@/components/Divider';
+import SearchBar from '@/components/SearchBar';
+import ImageCarousel from '@/components/ImageCarousel';
 
 export default function HomeScreen() {
     
-    // --- VARIABLE TRACKING ---
+    // --- STATE ---
     const [activeNavTab, setActiveNavTab] = useState<TabName>("Home");
 
     // ------------------------------------------------------------------
@@ -19,10 +23,62 @@ export default function HomeScreen() {
             {/* --- MAIN SCROLLABLE CONTENT */}
             <ScrollView
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingHorizontal: 20, paddingTop: 60, paddingBottom: 120 }}
+                contentContainerStyle={{ 
+                    alignItems: 'center',
+                    paddingTop: 60, 
+                    paddingBottom: 120 
+                }}
             >
-                <AppText variant='title'>Home</AppText>
-                <Divider variant='title'></Divider>
+                { /* --- HEADER --- */}
+                <View style={{
+                    width: '85%'
+                }}>
+                    <AppText variant='title'>Home</AppText>
+                    <Divider variant='title'></Divider>
+                </View>
+
+                {/* --- SEARCH BAR --- */}
+                <SearchBar
+                    label='Search E-Code'
+                    placeholder='ECode'
+                    onSearch={(text) => console.log("Searching for:", text)}
+                />
+
+                <View style={{
+                    width: '85%'
+                }}>
+                    <Divider/>
+                </View>
+
+                {/* --- RECTNLY SCANNED CAROUSEL --- */}
+                <ImageCarousel
+                    title='Recently Scanned'
+                    images={[
+                        require('../../assets/icons/Image_Placeholder.png'),
+                         require('../../assets/icons/Image_Placeholder.png'),
+                        require('../../assets/icons/Image_Placeholder.png'),
+                        require('../../assets/icons/Image_Placeholder.png'),
+                        require('../../assets/icons/Image_Placeholder.png')
+                    ]}
+                />
+
+                <View style={{
+                    width: '85%'
+                }}>
+                    <Divider/>
+                </View>
+
+                {/* --- TRENDING CAROUSEL --- */}
+                <ImageCarousel
+                    title='Trending'
+                    images={[
+                        require('../../assets/icons/Image_Placeholder.png'),
+                         require('../../assets/icons/Image_Placeholder.png'),
+                        require('../../assets/icons/Image_Placeholder.png'),
+                        require('../../assets/icons/Image_Placeholder.png'),
+                        require('../../assets/icons/Image_Placeholder.png')
+                    ]}
+                />
 
                 {/* DEBUGGING LINK */}
                 <TouchableOpacity 
