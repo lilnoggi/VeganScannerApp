@@ -2,6 +2,12 @@
 import { router } from 'expo-router'; 
 import { useState } from 'react';
 import { ScrollView, View } from 'react-native';
+
+// --- THEME IMPORTS ---
+import { useTheme } from '@/theme/ThemeContext';
+import { ThemeName } from '@/theme/theme';
+
+// --- COMPONENT IMPORTS ---
 import FormInput from '@/components/FormInput'
 import FormDropdown from '@/components/FormDropdown';
 import FormToggle from '@/components/FormToggle';
@@ -30,6 +36,13 @@ export default function ComponentsLibrary() {
   // Track NavBar state
   const [activeNavTab, setActiveNavTab] = useState<TabName>("Home");
 
+  // --- THEME MANAGEMENT ---
+  const { theme, themeName, setTheme } = useTheme();
+  const activeThemeLabel =
+    themeName === 'default' ? 'Default Theme' :
+    themeName === 'sakura' ? 'Sakura Theme' :
+    themeName == 'abyssal' ? 'Abyssal Theme' : '';
+
   return (
 
     // --- MAIN CANVAS ---
@@ -37,7 +50,7 @@ export default function ComponentsLibrary() {
       showsVerticalScrollIndicator={false}
         style={{ 
           flex: 1, 
-          backgroundColor: '#FCFBF9', 
+          backgroundColor: theme.background, 
         }}
         contentContainerStyle={{
           alignItems: 'center',
@@ -228,6 +241,26 @@ export default function ComponentsLibrary() {
       />
 
       <Divider/>
+
+      {/* --- THEME TOGGLES --- */}
+      <AppText variant='h1'>Theme Toggles</AppText>
+            <FormRadioButton
+                label="Default Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('default')}
+            />
+            <FormRadioButton
+                label="Sakura Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('sakura')}
+            />
+            <FormRadioButton
+                label="Abyssal Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('abyssal')}
+            />
+
+          <Divider/>
 
       {/* NAVIGATION BAR */}
       <AppText variant="h1">Navigation Bar</AppText>
