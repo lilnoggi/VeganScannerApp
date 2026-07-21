@@ -1,6 +1,7 @@
 // --- IMPORTS---
 import { Text, TouchableOpacity, View } from 'react-native';
 import AppText from './AppText';
+import { useTheme } from '@/theme/ThemeContext';
 
 type MenuRowProps = {
     label:string;
@@ -8,6 +9,9 @@ type MenuRowProps = {
 };
 
 export default function MenuRow({ label, onPress }: MenuRowProps) {
+    
+    const { theme } = useTheme();
+    
     return (
         <TouchableOpacity
         onPress={onPress}
@@ -15,7 +19,7 @@ export default function MenuRow({ label, onPress }: MenuRowProps) {
             width: '85%',
             paddingVertical: 15, // Slightly taller padding for easier tapping
             borderBottomWidth: 1,
-            borderBottomColor: '#E8D4C4', // Caramel divider line
+            borderBottomColor: theme.border, // Caramel divider line
             justifyContent: 'center',
         }}
         >

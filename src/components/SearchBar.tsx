@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Image } from 'react-native';
 import AppText from './AppText';
+import { useTheme } from '@/theme/ThemeContext';
 
 // --- TYPES ---
 type SearchBarProps = {
@@ -14,6 +15,8 @@ type SearchBarProps = {
 export default function SearchBar({ label, placeholder, onSearch}: SearchBarProps) {
     // State to remember what the user types before submit
     const [text, setText] = useState("");
+
+    const { theme } = useTheme();
 
     return (
         <View style={{ width: '85%', marginBottom: 20 }}>
@@ -31,8 +34,8 @@ export default function SearchBar({ label, placeholder, onSearch}: SearchBarProp
                     flex: 1,
                     flexDirection: 'row',
                     alignItems: 'center',
-                    backgroundColor: '#F8F4E6',
-                    borderColor: '#D4A373',
+                    backgroundColor: theme.input,
+                    borderColor: theme.border,
                     borderWidth: 1.5,
                     borderRadius: 8,
                     paddingHorizontal: 12,
@@ -44,7 +47,7 @@ export default function SearchBar({ label, placeholder, onSearch}: SearchBarProp
                         style={{ 
                             width: 18,
                             height: 18,
-                            tintColor: '#C4A48A',
+                            tintColor: theme.border,
                             marginRight: 10
                         }}
                         resizeMode='contain'
@@ -54,11 +57,11 @@ export default function SearchBar({ label, placeholder, onSearch}: SearchBarProp
                     <TextInput
                         style={{
                             flex: 1,
-                            color: '#5C4033',
+                            color: theme.primaryText,
                             fontSize: 16
                         }}
                         placeholder={placeholder}
-                        placeholderTextColor="#C4A48A"
+                        placeholderTextColor={theme.border}
                         value={text}
                         onChangeText={setText}
                     />
@@ -71,11 +74,11 @@ export default function SearchBar({ label, placeholder, onSearch}: SearchBarProp
                         width: 48,
                         height: 48,
                         borderRadius: 24,
-                        borderColor: '#D4A373',
+                        borderColor: theme.border,
                         borderWidth: 1.5,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundColor: '#FCFBF9',
+                        backgroundColor: theme.background,
                     }}
                 >
                     <Image
@@ -83,7 +86,7 @@ export default function SearchBar({ label, placeholder, onSearch}: SearchBarProp
                         style={{ 
                             width: 32,
                             height: 32,
-                            tintColor: '#C4A48A',
+                            tintColor: theme.border,
                             transform: [{rotate: '180deg'}]
                         }}
                         resizeMode='contain'

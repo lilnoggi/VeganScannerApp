@@ -1,5 +1,6 @@
 // --- IMPORTS ---
 import { TouchableOpacity, Image, ImageSourcePropType, ViewStyle } from "react-native";
+import { useTheme } from "@/theme/ThemeContext";
 
 // --- TYPES ---
 type IconButtonProps = {
@@ -7,6 +8,7 @@ type IconButtonProps = {
     onPress: () => void;
     size?: number;
     style?: ViewStyle;
+    isAlert?: boolean;
 };
 
 // --- THE COMPONENT ---
@@ -14,8 +16,12 @@ export default function IconButton({
     iconSource,
     onPress,
     size = 28,
-    style
+    style,
+    isAlert = false
 }: IconButtonProps) {
+
+    const { theme } = useTheme();
+
     return (
         <TouchableOpacity
             onPress={onPress}
@@ -32,6 +38,7 @@ export default function IconButton({
                     width: size,
                     height: size,
                     resizeMode: 'contain', // Prevent the image from stretching
+                    tintColor: isAlert ? theme.alert : theme.secondary
                 }}
             />
         </TouchableOpacity>

@@ -2,6 +2,7 @@
 // TouchableOpacity for clickable buttons
 import { Text, TouchableOpacity } from 'react-native';
 import AppText from './AppText';
+import { useTheme } from '@/theme/ThemeContext';
 
 // --- TYPES ---
 // Component needs to display text (title) & an action to perform when pressed (onPress)
@@ -13,11 +14,14 @@ type PrimaryButtonProps = {
 
 // --- THE COMPONENT ---
 export default function PrimaryButton({ title, onPress, isSmall }: PrimaryButtonProps) {
+    
+    const { theme } = useTheme();
+    
     return (
         <TouchableOpacity
         onPress={onPress}
         style={{
-            backgroundColor: '#5A7D4C',        // Matcha Green
+            backgroundColor: theme.primaryButton,     
             // If it's small, wrap tightly around the text. Otherwise, stretch to 85% width
             width: isSmall ? 'auto' : '85%',     // Match width of text inputs
             paddingVertical: isSmall ? 8 : 15,   // Less padding for the small variant

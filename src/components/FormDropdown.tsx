@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import AppText from './AppText';
+import { useTheme } from '@/theme/ThemeContext';
 
 // --- TYPES ---
 type FormDropdownProps = {
@@ -19,6 +20,8 @@ export default function FormDropdown({ label, options, selectedValue, onSelect}:
     // setIsOpen is the function
     const [isOpen, setIsOpen] = useState(false);
 
+    const { theme } = useTheme();
+
     return (
         <View style={{ width: '85%', marginBottom: 20 }}>
 
@@ -32,8 +35,8 @@ export default function FormDropdown({ label, options, selectedValue, onSelect}:
         // When pressed, flip the bool to the opposite of what it currently is
         onPress={() => setIsOpen(!isOpen)}
         style={{
-            backgroundColor: '#F8F4E6',
-            borderColor: '#D4A373',
+            backgroundColor: theme.input,
+            borderColor: theme.border,
             borderWidth: 1.5,
             // If the menu is open, make the bottom corners flat so the list attatches seamlessly
             borderRadius: isOpen ? 0 : 8,
@@ -45,12 +48,15 @@ export default function FormDropdown({ label, options, selectedValue, onSelect}:
             justifyContent: 'space-between', // Pushes text to the left, arrow to the right
           }}
         >
-        <Text style={{ color: selectedValue ? '#5C5033' : '#C4A48A', fontSize: 16 }}>
+        <Text style={{ 
+            color: selectedValue ? theme.primaryText : theme.border, 
+            fontSize: 16 
+        }}>
             {selectedValue || "Select an option..."}
         </Text>
 
         {/* Arrow that flips when open */}
-        <Text style={{ color: '#D4A373', fontWeight: 'bold' }}>
+        <Text style={{ color: theme.border, fontWeight: 'bold' }}>
             {isOpen ? '^' : ">"}
         </Text>
     </TouchableOpacity>
@@ -58,8 +64,8 @@ export default function FormDropdown({ label, options, selectedValue, onSelect}:
     {/* --- DROPDOWN LIST --- */}
     {isOpen && (
         <View style={{
-            backgroundColor: '#F8F4E6',
-            borderColor: '#D4A373',
+            backgroundColor: theme.input,
+            borderColor: theme.border,
             borderWidth: 1.5,
             borderTopWidth: 0, // Remove the double border where it touches the button
             borderBottomLeftRadius: 8,

@@ -220,6 +220,7 @@ export default function ComponentsLibrary() {
         <IconButton
           iconSource={require('../../assets/icons/ReportIcon_Placeholder.png')}
           onPress={() => console.log("Report Pressed!")}
+          isAlert={true}
         />
 
       </View>

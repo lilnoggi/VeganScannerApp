@@ -1,6 +1,7 @@
 // --- IMPORTS ---
 import { Switch, Text, View } from 'react-native';
 import AppText from './AppText';
+import { useTheme } from '@/theme/ThemeContext';
 
 // --- TYPES ---
 type FormToggleProps = {
@@ -11,6 +12,9 @@ type FormToggleProps = {
 
 // --- THE COMPONENT ---
 export default function FormToggle({ label, isOn, onToggle }: FormToggleProps) {
+    
+    const { theme } = useTheme();
+    
     return (
         <View style={{
             flexDirection: 'row', // Places the text and the switch side-by-side
@@ -20,7 +24,7 @@ export default function FormToggle({ label, isOn, onToggle }: FormToggleProps) {
             paddingVertical: 12,
             // Add horizontal line to separate list items
             borderBottomWidth: 1,
-            borderBottomColor: '#E8D4C4'
+            borderBottomColor: theme.border
         }}>
 
             {/* --- THE LABEL --- */}
@@ -34,11 +38,11 @@ export default function FormToggle({ label, isOn, onToggle }: FormToggleProps) {
             onValueChange={onToggle}
             // Pill shaped background
             trackColor={{
-                false: '#E8D4C4', // Light Caramel when OFF
-                true: '#5A7D4C'  // Match green when ON
+                false: theme.border, // Light Caramel when OFF
+                true: theme.primaryButton  // Match green when ON
             }}
             // Circle Colour
-            thumbColor={isOn? '#D4A373' : '#A06B42'} // Shifts between lighter and darker caramel 
+            thumbColor={isOn? theme.secondary : theme.primaryText} // Shifts between lighter and darker caramel 
             />
 
         </View>

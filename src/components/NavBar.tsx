@@ -1,6 +1,7 @@
 // --- IMPORTS ---
 import React from 'react';
 import { View, TouchableOpacity, Image, ImageSourcePropType, Text } from 'react-native';
+import { useTheme } from '@/theme/ThemeContext';
 
 // --- TYPES ---
 export type TabName = 'Home' | 'Scanner' | 'Community' | 'Profile';
@@ -12,13 +13,16 @@ type NavBarProps = {
 
 // --- THE COMPONENT ---
 export default function NavBar({ activeTab, onTabPress }: NavBarProps) {
+    
+    const { theme } = useTheme();
+    
     return (
         // floating "Pill" background
         <View style={{
             flexDirection: 'row',
             justifyContent: 'space-evenly',
             alignItems: 'center',
-            backgroundColor: '#F8F4E6', // Light beige background
+            backgroundColor: theme.input, // Light beige background
             borderRadius: 30, // Highly rounded corners
             paddingVertical: 12,
             paddingHorizontal: 10,
@@ -82,6 +86,9 @@ const NavItem = ({
     inactiveIcon: ImageSourcePropType; 
     onPress: () => void; 
 }) => {
+
+    const { theme } = useTheme();
+
     return (
         <TouchableOpacity 
             onPress={onPress} 
@@ -89,11 +96,17 @@ const NavItem = ({
         >
             <Image 
                 source={isActive ? activeIcon : inactiveIcon} 
-                style={{ width: 45, height: 45, resizeMode: 'contain', marginBottom: 4 }} 
+                style={{ 
+                    width: 45, 
+                    height: 45, 
+                    resizeMode: 'contain', 
+                    marginBottom: 4, 
+                    tintColor: isActive ? theme.primaryButton : theme.secondary
+                }} 
             />
             <Text style={{
                 fontSize: 12,
-                color: isActive ? '#4E733B' : '#A06B42', // Green if active, Caramel if not
+                color: isActive ? theme.primaryButton : theme.secondary, // Green if active, Caramel if not
                 fontWeight: isActive ? 'bold' : 'normal',
                 textDecorationLine: isActive ? 'underline' : 'none',
             }}>
