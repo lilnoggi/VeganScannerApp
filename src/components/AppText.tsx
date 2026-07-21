@@ -18,35 +18,35 @@ export default function AppText({ variant = 'body', children }: AppTextProps) {
 
     switch (variant) {
         case 'title':
-            textStyle = { fontSize: 32, fontWeight: 'bold', color: theme.primaryText, marginBottom: 15 };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 32, fontWeight: 'bold', color: theme.primaryText, marginBottom: 15 };
             break;
         case 'subtitle':
-            textStyle = { fontSize: 18, fontWeight: '600', color: theme.border, marginBottom: 5 };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 18, fontWeight: '600', color: theme.border, marginBottom: 5 };
             break;
         case 'h1':
-            textStyle = { fontSize: 24, fontWeight: 'bold', color: theme.secondary, marginBottom: 10 };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 24, fontWeight: 'bold', color: theme.secondary, marginBottom: 10 };
             break;
         case 'h2':
-            textStyle = { fontSize: 20, fontWeight: 'bold', color: theme.primaryText, opacity: 0.55, marginBottom: 10 };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 20, fontWeight: 'bold', color: theme.primaryText, opacity: 0.55, marginBottom: 10 };
             break;
         case 'h3':
-            textStyle = { fontSize: 16, fontWeight: 'bold', color: theme.secondary, marginBottom: 5 };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 16, fontWeight: 'bold', color: theme.secondary, marginBottom: 5 };
             break;
         case 'button':
-            textStyle = { fontSize: 18, fontWeight: 'bold', color: theme.background };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 18, fontWeight: 'bold', color: theme.background };
             break;
         case 'inputLabel':
-            textStyle = { fontSize: 14, fontWeight: 'bold', color: theme.primaryText, marginBottom: 6 };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 14, fontWeight: 'bold', color: theme.primaryText, marginBottom: 6 };
             break;
         case 'caption':
-            textStyle = { fontSize: 14, fontWeight: 'bold', color: theme.border };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 14, fontWeight: 'bold', color: theme.border };
             break;
         case 'link':
-            textStyle = { fontSize: 14, fontWeight: 'bold', color: theme.border, textDecorationLine: 'underline' };
+            textStyle = { fontFamily: 'Nunito-Bold', fontSize: 14, fontWeight: 'bold', color: theme.border, textDecorationLine: 'underline' };
             break;
         case 'body':
         default:
-            textStyle = { fontSize: 14, color: theme.primaryText };
+            textStyle = { fontFamily: 'Nunito-Regular', fontSize: 14, color: theme.primaryText };
             break;
     }
 
