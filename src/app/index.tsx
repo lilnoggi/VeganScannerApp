@@ -3,6 +3,9 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, View, TouchableOpacity } from 'react-native'; 
 
+// --- THEMES ---
+import { useTheme } from '@/theme/ThemeContext';
+
 // --- CUSTOM COMPONENTS ---
 import AppText from '@/components/AppText';
 import NavBar, { TabName } from '@/components/NavBar';
@@ -14,11 +17,12 @@ export default function HomeScreen() {
     
     // --- STATE ---
     const [activeNavTab, setActiveNavTab] = useState<TabName>("Home");
+    const { theme, themeName, setTheme } = useTheme();
 
     // ------------------------------------------------------------------
 
     return (
-        <View style={{ flex: 1, backgroundColor: '#FCFBF9' }}>
+        <View style={{ flex: 1, backgroundColor: theme.background }}>
 
             {/* --- MAIN SCROLLABLE CONTENT */}
             <ScrollView
