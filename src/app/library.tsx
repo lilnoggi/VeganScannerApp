@@ -41,6 +41,10 @@ export default function ComponentsLibrary() {
   const activeThemeLabel =
     themeName === 'default' ? 'Default Theme' :
     themeName === 'sakura' ? 'Sakura Theme' :
+    themeName === 'evergreen' ? 'Evergreen Theme' :
+    themeName === 'midnight' ? 'Midnight Theme' :
+    themeName === 'midnightPurple' ? 'Midnight Purple Theme' :
+    themeName === 'tropicalReef' ? 'Tropical Reef Theme' :
     themeName == 'abyssal' ? 'Abyssal Theme' : '';
 
   return (
@@ -254,6 +258,26 @@ export default function ComponentsLibrary() {
                 label="Sakura Theme"
                 selectedOption={activeThemeLabel}
                 onSelect={() => setTheme('sakura')}
+            />
+            <FormRadioButton
+                label="Evergreen Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('evergreen')}
+            />
+            <FormRadioButton
+                label="Midnight Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('midnight')}
+            />
+            <FormRadioButton
+                label="Midnight Purple Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('midnightPurple')}
+            />
+            <FormRadioButton
+                label="Tropical Reef Theme"
+                selectedOption={activeThemeLabel}
+                onSelect={() => setTheme('tropicalReef')}
             />
             <FormRadioButton
                 label="Abyssal Theme"

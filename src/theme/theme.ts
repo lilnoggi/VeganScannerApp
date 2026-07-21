@@ -52,6 +52,16 @@ export const Themes: Record<string, ThemePalette> ={
         warning: '#FFB300',
         input: '#1E1E1E',
     },
+    midnightPurple: {
+        background: '#161122',
+        primaryText: '#E8E4F3',
+        secondary: '#6A5393',
+        border: '#4A3B6C',
+        primaryButton: '#38E0B3',
+        alert: '#FF5C5C',
+        warning: '#FFC857',
+        input: '#221B35',
+    },
     tropicalReef: {
         background: '#FFF7F0',
         primaryText: '#1A3C40',
