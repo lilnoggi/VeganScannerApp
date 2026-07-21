@@ -14,6 +14,7 @@ import Divider from '@/components/Divider';
 import AppText from '@/components/AppText';
 import NavBar, { TabName } from '@/components/NavBar';
 import SearchBar from '@/components/SearchBar';
+import ImageCarousel from '@/components/ImageCarousel';
 
 export default function ComponentsLibrary() {
   // Create a variable to hold the user's dropdown choice
@@ -212,8 +213,24 @@ export default function ComponentsLibrary() {
 
       <Divider/>
 
+      {/* --- IMAGE CAROUSELS --- */}
+      <AppText variant='h1'>Image Carousels</AppText>
+
+      <ImageCarousel
+          title="Examples"
+          images={[
+            require('../../assets/icons/Image_Placeholder.png'),
+            require('../../assets/icons/Image_Placeholder.png'),
+            require('../../assets/icons/Image_Placeholder.png'),
+            require('../../assets/icons/Image_Placeholder.png'),
+            require('../../assets/icons/Image_Placeholder.png')
+          ]}
+      />
+
+      <Divider/>
+
       {/* NAVIGATION BAR */}
-      <AppText variant="h2">Navigation Bar</AppText>
+      <AppText variant="h1">Navigation Bar</AppText>
 
       <View style={{ width: '100%', paddingBottom: 40, paddingTop: 10 }}>
         <NavBar
