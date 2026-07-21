@@ -13,6 +13,7 @@ import TextLink from '@/components/TextLink';
 import Divider from '@/components/Divider';
 import AppText from '@/components/AppText';
 import NavBar, { TabName } from '@/components/NavBar';
+import SearchBar from '@/components/SearchBar';
 
 export default function ComponentsLibrary() {
   // Create a variable to hold the user's dropdown choice
@@ -61,6 +62,17 @@ export default function ComponentsLibrary() {
       />
 
       <Divider/>
+
+      {/* --- SEARCH BAR --- */}
+      <AppText variant='h1'> Search Bar</AppText>
+
+        <SearchBar
+        label="Search E-Code"
+        placeholder='ECode'
+        onSearch={(text) => console.log("User search for:", text)}
+        />
+
+        <Divider/>
 
       {/* Text Inputs */}
       <AppText variant="h1">Text Inputs</AppText>
