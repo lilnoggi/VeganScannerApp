@@ -1,7 +1,9 @@
 // --- IMPORTS ---
-import { useState } from 'react';
+import { useRef } from 'react';
 import { View, Text } from 'react-native';
+import { router } from 'expo-router';
 import { useCameraPermissions, CameraView } from 'expo-camera';
+import { useIsFocused } from '@react-navigation/native';
 import { useTheme } from '@/theme/ThemeContext';
 
 // --- COMPONENTS ---
@@ -18,7 +20,10 @@ export default function ScannerScreen() {
     const [permission, requestPermission] = useCameraPermissions();
     
     // State to stop the scanner from firing 100 times a second
-    const [scanned, setScanned] = useState(false);
+    const isScanningRef = useRef(false);
+
+    // Track if user is currently on this screen
+    const isFocused = useIsFocused();
 
     // Checking state
     if (!permission) {
@@ -52,30 +57,52 @@ export default function ScannerScreen() {
 
     // --- THE SCANNING LOGIC ---
     const handleBarcodeScanned = ({ type, data }: { type: string, data: string }) => {
-        setScanned(true);
+        
+        // If locked, immediately reject
+        if (isScanningRef.current) return;
+        
+        // Instantly lock it so no other frames can pass
+        isScanningRef.current = true;
+
         console.log(`Scanned type: ${type}, data: ${data}`);
         
         // Alert the user what they scanned!
-        alert(`Barcode Scanned!\nData: ${data}`);
-        
-        // Reset the scanner after 2 seconds so they can scan another item
+        router.replace({ pathname: '/results' as any, params: { code: data }});
+
+        // Unlock after 2 seconds
         setTimeout(() => {
-            setScanned(false);
+            isScanningRef.current = false;
         }, 2000);
+        
     };
 
     // Granted State - Live Camera Feed
     return (
         <View style={{ flex: 1, backgroundColor: 'black' }}>
-            <CameraView
-                style={{ flex: 1 }}
-                facing="back"
-                // If it hasn't scanned yet, listen for a barcode. If it has, pause listening.
-                onBarcodeScanned={scanned ? undefined : handleBarcodeScanned}
-            >
+
+            {/* Only render/active the camera if the screen is focused */}
+            {isFocused && (
+                <CameraView
+                    style={{ 
+                        position: 'absolute',
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0
+                    }}
+                    facing="back"
+                    // If it hasn't scanned yet, listen for a barcode. If it has, pause listening.
+                    onBarcodeScanned={handleBarcodeScanned}
+                />
+            )}
+
                 {/* --- UI OVERLAY --- */}
                 <View style={{
-                    flex: 1,
+                    position: 'absolute',
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
                     backgroundColor: 'transparent',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -126,7 +153,6 @@ export default function ScannerScreen() {
                     </View>
 
                 </View>
-            </CameraView>
         </View>
     );
 }
