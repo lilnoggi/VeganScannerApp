@@ -1,11 +1,13 @@
 // --- IMPORTS ---
+import React, { ReactNode } from 'react';
 import { Text } from 'react-native';
 import { useTheme } from '@/theme/ThemeContext';
 
 // --- TYPES ---
 type AppTextProps = {
     variant?: 'title' | 'h1' | "h2" | "h3" | 'subtitle' | 'body' | 'button' | 'inputLabel' | 'caption' | 'link';
-    children: string | number; // Whatever is placed inside the tags
+    children: ReactNode;
+    style?: any;
 };
 
 // --- THE COMPONENT ---
