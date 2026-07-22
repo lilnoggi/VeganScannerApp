@@ -78,6 +78,16 @@ export default function ComponentsLibrary() {
       actionText="Home"
       onPress={() => { router.push('/')}}
       />
+      <TextLink
+      questionText="Sign Up Page:"
+      actionText="Sign up"
+      onPress={() => { router.push('/sign-up')}}
+      />
+      <TextLink
+      questionText="Login Page:"
+      actionText="Login"
+      onPress={() => { router.push('/login')}}
+      />
 
       <Divider/>
 
