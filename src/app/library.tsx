@@ -105,6 +105,14 @@ export default function ComponentsLibrary() {
       placeholder="Example"
       maxLength={20}
       />
+
+      <FormInput
+      label="Password Example"
+      placeholder="Example"
+      maxLength={20}
+      secureTextEntry={true}
+      />
+
       <Divider variant='faded'/>
 
       <AppText variant="h2">Multiline Examples</AppText>
